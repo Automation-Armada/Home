@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Bienvenido Alan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px 0;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        h2 {
+            margin-top: 20px;
+            font-size: 1.8em;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: #e9ecef;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        li:hover {
+            background-color: #d3d3d3;
+        }
+        footer {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #777;
+        }
+        .config {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s;
+        }
+        .config:hover {
+            background-color: #0056b3;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: white;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: left;
+        }
+        .close {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+        .switch {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+        }
+        .switch input {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Bienvenido Alan</h1>
+    </header>
+
+    <div class="container">
+        <h2>Lista de Empleados</h2>
+        <ul>
+            <li><i class="fas fa-user"></i> Empleado 1</li>
+            <li><i class="fas fa-user"></i> Empleado 2</li>
+            <li><i class="fas fa-user"></i> Empleado 3</li>
+            <li><i class="fas fa-user"></i> Empleado 4</li>
+        </ul>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Tu Empresa. Todos los derechos reservados.</p>
+    </footer>
+
+    <button class="config" onclick="openModal()">
+        <i class="fas fa-cog"></i>
+    </button>
+
+    <div class="modal" id="configModal">
+        <div class="modal-content">
+            <h3>Configuración</h3>
+            <div class="switch">
+                <label for="darkModeSwitch">Modo Oscuro</label>
+                <input type="checkbox" id="darkModeSwitch" onchange="toggleDarkMode()">
+            </div>
+            <button class="close" onclick="closeModal()">Salir</button>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('configModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('configModal').style.display = 'none';
+        }
+
+        function toggleDarkMode() {
+            const body = document.body;
+            const container = document.querySelector('.container');
+            const isDarkMode = document.getElementById('darkModeSwitch').checked;
+
+            if (isDarkMode) {
+                body.style.backgroundColor = '#333';
+                body.style.color = '#fff';
+                container.style.backgroundColor = '#444';
+            } else {
+                body.style.backgroundColor = '#f4f4f4';
+                body.style.color = '#333';
+                container.style.backgroundColor = '#fff';
+            }
+        }
+    </script>
+
+</body>
+</html>
