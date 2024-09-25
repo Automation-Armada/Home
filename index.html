@@ -150,6 +150,11 @@
     </div>
 
     <script>
+        // Verificar si la página fue accedida desde el enlace específico
+        if (document.referrer !== "https://automation-armada.github.io/login/") {
+            window.close(); // Cerrar la página si no proviene del enlace
+        }
+
         function openModal() {
             document.getElementById('configModal').style.display = 'flex';
         }
