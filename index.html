@@ -155,6 +155,9 @@
 
         if (document.referrer !== validReferrer && document.referrer !== "") {
             window.location.href = validReferrer; // Redirigir si no es el enlace válido
+        } else if (document.referrer === "") {
+            // Si la página se carga directamente (sin referrer), también redirigir
+            window.location.href = validReferrer;
         }
 
         function openModal() {
