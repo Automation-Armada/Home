@@ -150,40 +150,37 @@
     </div>
 
     <script>
-        // Verificar si la página fue accedida desde el enlace específico
         const validReferrer = "https://automation-armada.github.io/login/";
         const referrer = document.referrer;
 
-        // Redirigir si la página se carga directamente o se recarga sin un referrer válido
         if (referrer !== validReferrer && referrer !== "") {
             window.location.href = validReferrer;
         } else if (referrer === "") {
             window.location.href = validReferrer;
         }
 
-        function openModal() {
-            document.getElementById('configModal').style.display = 'flex';
+        let timeout;
+        let inactivityTime = 5 * 60 * 1000; // 5 minutos
+        let warningTime = 10 * 1000; // 10 segundos
+
+        function resetTimer() {
+            clearTimeout(timeout);
+            timeout = setTimeout(showWarning, inactivityTime);
         }
 
-        function closeModal() {
-            document.getElementById('configModal').style.display = 'none';
-        }
-
-        function toggleDarkMode() {
-            const body = document.body;
-            const container = document.querySelector('.container');
-            const isDarkMode = document.getElementById('darkModeSwitch').checked;
-
-            if (isDarkMode) {
-                body.style.backgroundColor = '#333';
-                body.style.color = '#fff';
-                container.style.backgroundColor = '#444';
+        function showWarning() {
+            if (confirm("¿Sigues ahí?")) {
+                resetTimer();
             } else {
-                body.style.backgroundColor = '#f4f4f4';
-                body.style.color = '#333';
-                container.style.backgroundColor = '#fff';
+                window.location.href = validReferrer;
             }
         }
+
+        document.onload = resetTimer();
+        document.onmousemove = resetTimer;
+        document.onkeypress = resetTimer;
+
+        resetTimer();
     </script>
 
 </body>
