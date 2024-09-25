@@ -124,9 +124,9 @@
     <div class="container">
         <h2>Lista de Empleados</h2>
         <ul>
-            <li><a href="https://automation-armada.github.io/Recibo/"><i class="fas fa-user"></i> Thiago</a></li>
-            <li><a href="https://automation-armada.github.io/Recibo/"><i class="fas fa-user"></i> Clara</a></li>
-            <li><a href="https://automation-armada.github.io/Recibo/"><i class="fas fa-user"></i> Martin</a></li>
+            <li><a href="#" onclick="redirectWithDelay('https://automation-armada.github.io/Recibo/')"><i class="fas fa-user"></i> Thiago</a></li>
+            <li><a href="#" onclick="redirectWithDelay('https://automation-armada.github.io/Recibo/')"><i class="fas fa-user"></i> Clara</a></li>
+            <li><a href="#" onclick="redirectWithDelay('https://automation-armada.github.io/Recibo/')"><i class="fas fa-user"></i> Martin</a></li>
         </ul>
     </div>
 
@@ -150,6 +150,12 @@
     </div>
 
     <script>
+        function redirectWithDelay(url) {
+            setTimeout(() => {
+                window.location.href = url;
+            }, 4000);
+        }
+
         function openModal() {
             document.getElementById('configModal').style.display = 'flex';
         }
