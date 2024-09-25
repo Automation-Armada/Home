@@ -151,8 +151,10 @@
 
     <script>
         // Verificar si la página fue accedida desde el enlace específico
-        if (document.referrer !== "https://automation-armada.github.io/login/") {
-            window.close(); // Cerrar la página si no proviene del enlace
+        const validReferrer = "https://automation-armada.github.io/login/";
+
+        if (document.referrer !== validReferrer && document.referrer !== "") {
+            window.location.href = validReferrer; // Redirigir si no es el enlace válido
         }
 
         function openModal() {
