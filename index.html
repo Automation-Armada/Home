@@ -137,7 +137,7 @@
         <p>&copy; 2024 Tu Empresa. Todos los derechos reservados.</p>
     </footer>
 
-    <button class="logout" onclick="window.location.href='https://automation-armada.github.io/login/'">
+    <button class="logout" onclick="logout()">
         <i class="fas fa-sign-out-alt"></i>
     </button>
 
@@ -175,8 +175,12 @@
             if (confirm("¿Sigues ahí?")) {
                 resetTimer();
             } else {
-                window.location.href = validReferrer;
+                logout();
             }
+        }
+
+        function logout() {
+            window.location.replace("https://automation-armada.github.io/login/");
         }
 
         document.onload = resetTimer();
