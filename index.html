@@ -55,11 +55,11 @@
             font-size: 0.9em;
             color: #777;
         }
-        .config {
+        .logout {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background-color: #007bff;
+            background-color: #dc3545; /* Color rojo */
             color: white;
             border: none;
             border-radius: 50%;
@@ -69,8 +69,8 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
             transition: background-color 0.3s;
         }
-        .config:hover {
-            background-color: #0056b3;
+        .logout:hover {
+            background-color: #c82333; /* Color rojo más oscuro */
         }
         .modal {
             display: none;
@@ -113,7 +113,6 @@
         .switch input {
             margin-left: 10px;
         }
-        /* Nueva clase para mover la lista hacia abajo */
         .employee-list {
             margin-top: 50px; /* Ajusta el margen para mover la lista hacia abajo */
         }
@@ -138,8 +137,8 @@
         <p>&copy; 2024 Tu Empresa. Todos los derechos reservados.</p>
     </footer>
 
-    <button class="config" onclick="openModal()">
-        <i class="fas fa-cog"></i>
+    <button class="logout" onclick="window.location.href='https://automation-armada.github.io/login/'">
+        <i class="fas fa-sign-out-alt"></i>
     </button>
 
     <div class="modal" id="configModal">
