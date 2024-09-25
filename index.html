@@ -152,11 +152,12 @@
     <script>
         // Verificar si la página fue accedida desde el enlace específico
         const validReferrer = "https://automation-armada.github.io/login/";
+        const referrer = document.referrer;
 
-        if (document.referrer !== validReferrer && document.referrer !== "") {
-            window.location.href = validReferrer; // Redirigir si no es el enlace válido
-        } else if (document.referrer === "") {
-            // Si la página se carga directamente (sin referrer), también redirigir
+        // Redirigir si la página se carga directamente o se recarga sin un referrer válido
+        if (referrer !== validReferrer && referrer !== "") {
+            window.location.href = validReferrer;
+        } else if (referrer === "") {
             window.location.href = validReferrer;
         }
 
