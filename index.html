@@ -13,14 +13,13 @@
         }
 
         header {
-            background:  #007bff; /* Cambiado a color naranja */
+            background: #007bff;
             color: #fff;
             padding: 10px 0;
             text-align: center;
-            position: relative; /* Permite posicionar los botones dentro del header */
+            position: relative;
         }
 
-        /* Estilos para el título */
         h1 {
             font-family: 'Courier New', Courier, monospace;
             font-size: 36px;
@@ -28,48 +27,31 @@
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
         }
 
-        /* Estilos para los botones */
         .boton {
-            background-color: #444; /* Color de fondo del botón */
-            color: white; /* Color del texto */
-            border: none; /* Sin borde */
-            border-radius: 5px; /* Bordes redondeados */
-            padding: 5px 10px; /* Espaciado interno */
-            cursor: pointer; /* Cambia el cursor al pasar el mouse */
-            transition: background-color 0.3s; /* Transición para el cambio de color */
-            margin-left: 15px; /* Espacio a la izquierda de cada botón */
+            background-color: #444;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-left: 15px;
         }
 
-        /* Ajustes para el posicionamiento de los botones */
-        .boton-perfil {
-            position: absolute; /* Posiciona el botón de perfil */
-            right: 120px; /* Ajusta la posición para el botón de perfil */
-            top: 10px; /* Espacio desde la parte superior */
-            background: none; /* Sin fondo para que solo se vea la imagen */
-            border: none; /* Sin borde */
-            padding: 0; /* Sin espaciado interno */
+        .boton-perfil, .boton-mensajes, .boton-salir {
+            position: absolute;
+            top: 10px;
+            background: none;
+            border: none;
+            padding: 0;
         }
 
-        .boton-mensajes {
-            position: absolute; /* Posiciona el botón de mensajes */
-            right: 70px; /* Ajusta la posición para el botón de mensajes */
-            top: 10px; /* Espacio desde la parte superior */
-            background: none; /* Sin fondo para que solo se vea la imagen */
-            border: none; /* Sin borde */
-            padding: 0; /* Sin espaciado interno */
-        }
-
-        .boton-salir {
-            position: absolute; /* Posiciona el botón de salir */
-            right: 20px; /* Ajusta la posición para el botón de salir */
-            top: 10px; /* Espacio desde la parte superior */
-            background: none; /* Sin fondo para que solo se vea la imagen */
-            border: none; /* Sin borde */
-            padding: 0; /* Sin espaciado interno */
-        }
+        .boton-perfil { right: 120px; }
+        .boton-mensajes { right: 70px; }
+        .boton-salir { right: 20px; }
 
         .boton:hover {
-            background-color: #555; /* Color más claro al pasar el mouse */
+            background-color: #555;
         }
 
         main {
@@ -102,6 +84,14 @@
             resize: none;
         }
 
+        .ubicacion-input {
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
         .boton-publicar {
             background: none;
             border: none;
@@ -115,7 +105,6 @@
             height: 24px;
         }
 
-        /* Estilo del botón de elegir archivo */
         .boton-elegir-archivo {
             background: none;
             border: none;
@@ -136,7 +125,7 @@
             width: 100%;
             overflow: hidden;
             transition: transform 0.3s;
-            margin-bottom: 20px; /* Agregar margen inferior para separación */
+            margin-bottom: 20px;
         }
 
         .publicacion:hover {
@@ -145,8 +134,8 @@
 
         .imagen-publicacion {
             width: 100%;
-            height: 400px; /* Altura fija de 400px */
-            object-fit: cover; /* Mantiene la proporción de la imagen */
+            height: 400px;
+            object-fit: cover;
             border-radius: 10px 10px 0 0;
         }
 
@@ -169,13 +158,12 @@
         }
 
         .descripcion {
-            margin: 10px 0; /* Espaciado vertical */
+            margin: 10px 0;
             font-size: 14px;
             color: #333;
-            padding-bottom: 10px; /* Espaciado inferior para separación */
+            padding-bottom: 10px;
         }
 
-        /* Estilo para el feed de publicaciones */
         .feed {
             width: 100%;
             max-width: 600px;
@@ -187,54 +175,74 @@
     <header>
         <h1>Trabajo Libre</h1>
         <button class="boton boton-perfil">
-            <img src="profile.png" alt="Perfil" style="width: 24px; height: 24px;"> <!-- Botón de perfil con icono -->
+            <img src="profile.png" alt="Perfil" style="width: 24px; height: 24px;">
         </button>
         <button class="boton boton-mensajes">
-            <img src="icon2.png" alt="Mensajes" style="width: 24px; height: 24px;"> <!-- Botón de mensajes con icono -->
+            <img src="icon2.png" alt="Mensajes" style="width: 24px; height: 24px;">
         </button>
         <button class="boton boton-salir">
-            <img src="salir.png" alt="Salir" style="width: 24px; height: 24px;"> <!-- Botón de salir con icono -->
+            <img src="salir.png" alt="Salir" style="width: 24px; height: 24px;">
         </button>
     </header>
 
     <main>
         <div class="nuevo-post">
             <textarea id="texto-publicacion" placeholder="¿Qué problema tienes?"></textarea>
+            <input type="text" id="ubicacion-publicacion" placeholder="Especifica la ubicación" class="ubicacion-input">
             <button class="boton-elegir-archivo" id="boton-elegir-archivo">
                 <img src="file.png" alt="Elegir archivo">
             </button>
-            <input type="file" id="archivo-imagen" accept="image/*" style="display: none;"> <!-- Campo para seleccionar una imagen -->
+            <input type="file" id="archivo-imagen" accept="image/*" style="display: none;">
             <button class="boton-publicar" id="boton-publicar">
                 <img src="icon2.png" alt="Publicar">
             </button>
         </div>
 
         <div class="feed" id="feed">
-            <!-- Las publicaciones se añadirán aquí -->
         </div>
     </main>
 
     <script>
-        // Cargar publicaciones del localStorage
-        let publicaciones = JSON.parse(localStorage.getItem('publicaciones')) || [];
+        let publicaciones = [
+            {
+                id: 2,
+                texto: "Se me rompió la cerradura de la puerta de casa y ahora me encuentro en una situación complicada y necesito con urgencia un cerrajero que pueda ayudarme.",
+                ubicacion: "Hurlingham",
+                imagen: 'imagen_10.jpg',
+                usuario: 'Usuario3'
+            },
+            {
+                id: 1,
+                texto: "Algun electricista",
+                ubicacion: "Moron",
+                imagen: 'imagen_8.jpg',
+                usuario: 'Usuario2'
+            },
+            {
+                id: 0,
+                texto: "Ayuda se me rompió la ducha",
+                ubicacion: "Moron",
+                imagen: 'imagen.jpg',
+                usuario: 'Usuario1'
+            }
+        ];
 
-        // Función para agregar una publicación
-        function agregarPublicacion(texto, imagen) {
+        function agregarPublicacion(texto, imagen, ubicacion) {
             const publicacion = {
                 id: publicaciones.length,
                 texto: texto,
                 imagen: imagen,
+                ubicacion: ubicacion,
                 usuario: 'Usuario123'
             };
-            publicaciones.push(publicacion);
-            localStorage.setItem('publicaciones', JSON.stringify(publicaciones)); // Guardar en localStorage
+            publicaciones.unshift(publicacion); 
+            localStorage.setItem('publicaciones', JSON.stringify(publicaciones));
             mostrarPublicaciones();
         }
 
-        // Función para mostrar las publicaciones en el feed
         function mostrarPublicaciones() {
             const feed = document.getElementById('feed');
-            feed.innerHTML = ''; // Limpiar el feed antes de mostrar las publicaciones
+            feed.innerHTML = '';
             publicaciones.forEach(pub => {
                 const divPublicacion = document.createElement('div');
                 divPublicacion.classList.add('publicacion');
@@ -242,6 +250,7 @@
                 divPublicacion.innerHTML = `
                     <div class="contenido">
                         <p class="descripcion"><strong>${pub.usuario}:</strong> ${pub.texto}</p>
+                        <p><strong>Ubicación:</strong> ${pub.ubicacion || 'No especificada'}</p>
                         ${pub.imagen ? `<img src="${pub.imagen}" alt="Imagen de publicación" class="imagen-publicacion">` : ''}
                         <div class="botones-publicacion">
                             <img src="icon2.png" alt="Enviar Mensaje" class="btn-enviar-mensaje">
@@ -253,34 +262,35 @@
             });
         }
 
-        // Evento para el botón de elegir archivo
-        document.getElementById('boton-elegir-archivo').addEventListener('click', () => {
-            document.getElementById('archivo-imagen').click(); // Simula el clic en el input de archivo
+                document.getElementById('boton-elegir-archivo').addEventListener('click', () => {
+            document.getElementById('archivo-imagen').click();
         });
 
-        // Evento para el botón de publicar
+        
         document.getElementById('boton-publicar').addEventListener('click', () => {
             const texto = document.getElementById('texto-publicacion').value;
+            const ubicacion = document.getElementById('ubicacion-publicacion').value;
             const archivo = document.getElementById('archivo-imagen').files[0];
 
-            // Verificar si se ha seleccionado una imagen
             let imagen = '';
             if (archivo) {
                 const reader = new FileReader();
                 reader.onload = function(e) {
-                    imagen = e.target.result; // Obtener la URL de la imagen
-                    agregarPublicacion(texto, imagen);
-                    document.getElementById('texto-publicacion').value = ''; // Limpiar el campo de texto
-                    document.getElementById('archivo-imagen').value = ''; // Limpiar el campo de archivo
+                    imagen = e.target.result;
+                    agregarPublicacion(texto, imagen, ubicacion);
+                    document.getElementById('texto-publicacion').value = '';
+                    document.getElementById('archivo-imagen').value = '';
+                    document.getElementById('ubicacion-publicacion').value = ''; 
                 }
-                reader.readAsDataURL(archivo); // Leer la imagen como URL
+                reader.readAsDataURL(archivo);
             } else {
-                agregarPublicacion(texto, imagen);
-                document.getElementById('texto-publicacion').value = ''; // Limpiar el campo de texto
+                agregarPublicacion(texto, imagen, ubicacion);
+                document.getElementById('texto-publicacion').value = '';
+                document.getElementById('ubicacion-publicacion').value = ''; 
             }
         });
 
-        mostrarPublicaciones(); // Mostrar publicaciones al cargar
+        mostrarPublicaciones(); 
     </script>
 </body>
 </html>
