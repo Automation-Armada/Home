@@ -3,192 +3,284 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Bienvenido Alan</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Trabajo Libre</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
-            background-color: #f4f4f4;
-            color: #333;
-            text-align: center;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        header {
-            background-color: #007bff;
-            color: white;
-            padding: 20px 0;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
-        h2 {
-            margin-top: 20px;
-            font-size: 1.8em;
-        }
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s;
-        }
-        ul {
-            list-style-type: none;
             padding: 0;
+            background-color: #f4f4f4;
         }
-        li {
-            background-color: #e9ecef;
-            margin: 10px 0;
-            padding: 15px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-        li:hover {
-            background-color: #d3d3d3;
-        }
-        footer {
-            margin-top: 20px;
-            font-size: 0.9em;
-            color: #777;
-        }
-        .logout {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #dc3545; /* Color rojo */
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            cursor: pointer;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            transition: background-color 0.3s;
-        }
-        .logout:hover {
-            background-color: #c82333; /* Color rojo más oscuro */
-        }
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.5);
-            justify-content: center;
-            align-items: center;
-        }
-        .modal-content {
-            background-color: white;
-            margin: auto;
-            padding: 20px;
-            border-radius: 10px;
-            width: 300px;
-            text-align: left;
-        }
-        .close {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 20px;
-            display: block;
-            width: 100%;
+
+        header {
+            background:  #007bff; /* Cambiado a color naranja */
+            color: #fff;
+            padding: 10px 0;
             text-align: center;
+            position: relative; /* Permite posicionar los botones dentro del header */
         }
-        .switch {
+
+        /* Estilos para el título */
+        h1 {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 36px;
+            margin: 0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Estilos para los botones */
+        .boton {
+            background-color: #444; /* Color de fondo del botón */
+            color: white; /* Color del texto */
+            border: none; /* Sin borde */
+            border-radius: 5px; /* Bordes redondeados */
+            padding: 5px 10px; /* Espaciado interno */
+            cursor: pointer; /* Cambia el cursor al pasar el mouse */
+            transition: background-color 0.3s; /* Transición para el cambio de color */
+            margin-left: 15px; /* Espacio a la izquierda de cada botón */
+        }
+
+        /* Ajustes para el posicionamiento de los botones */
+        .boton-perfil {
+            position: absolute; /* Posiciona el botón de perfil */
+            right: 120px; /* Ajusta la posición para el botón de perfil */
+            top: 10px; /* Espacio desde la parte superior */
+            background: none; /* Sin fondo para que solo se vea la imagen */
+            border: none; /* Sin borde */
+            padding: 0; /* Sin espaciado interno */
+        }
+
+        .boton-mensajes {
+            position: absolute; /* Posiciona el botón de mensajes */
+            right: 70px; /* Ajusta la posición para el botón de mensajes */
+            top: 10px; /* Espacio desde la parte superior */
+            background: none; /* Sin fondo para que solo se vea la imagen */
+            border: none; /* Sin borde */
+            padding: 0; /* Sin espaciado interno */
+        }
+
+        .boton-salir {
+            position: absolute; /* Posiciona el botón de salir */
+            right: 20px; /* Ajusta la posición para el botón de salir */
+            top: 10px; /* Espacio desde la parte superior */
+            background: none; /* Sin fondo para que solo se vea la imagen */
+            border: none; /* Sin borde */
+            padding: 0; /* Sin espaciado interno */
+        }
+
+        .boton:hover {
+            background-color: #555; /* Color más claro al pasar el mouse */
+        }
+
+        main {
+            padding: 20px;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            margin-top: 15px;
+            height: 100vh;
         }
-        .switch input {
-            margin-left: 10px;
+
+        .nuevo-post {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 580px;
+            padding: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        .employee-list {
-            margin-top: 50px; /* Ajusta el margen para mover la lista hacia abajo */
+
+        .nuevo-post textarea {
+            width: 100%;
+            height: 60px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            resize: none;
+        }
+
+        .boton-publicar {
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+            margin-left: -550px;
+        }
+
+        .boton-publicar img {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Estilo del botón de elegir archivo */
+        .boton-elegir-archivo {
+            background: none;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .boton-elegir-archivo img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .publicacion {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 100%;
+            overflow: hidden;
+            transition: transform 0.3s;
+            margin-bottom: 20px; /* Agregar margen inferior para separación */
+        }
+
+        .publicacion:hover {
+            transform: scale(1.02);
+        }
+
+        .imagen-publicacion {
+            width: 100%;
+            height: 400px; /* Altura fija de 400px */
+            object-fit: cover; /* Mantiene la proporción de la imagen */
+            border-radius: 10px 10px 0 0;
+        }
+
+        .contenido {
+            padding: 15px;
+            background-color: #d0d0d0;
+        }
+
+        .botones-publicacion {
+            display: flex;
+            justify-content: flex-start;
+            gap: 10px;
+            margin: 10px 0;
+        }
+
+        .botones-publicacion img {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+        }
+
+        .descripcion {
+            margin: 10px 0; /* Espaciado vertical */
+            font-size: 14px;
+            color: #333;
+            padding-bottom: 10px; /* Espaciado inferior para separación */
+        }
+
+        /* Estilo para el feed de publicaciones */
+        .feed {
+            width: 100%;
+            max-width: 600px;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-
     <header>
-        <h1>Bienvenido Alan</h1>
+        <h1>Trabajo Libre</h1>
+        <button class="boton boton-perfil">
+            <img src="profile.png" alt="Perfil" style="width: 24px; height: 24px;"> <!-- Botón de perfil con icono -->
+        </button>
+        <button class="boton boton-mensajes">
+            <img src="icon2.png" alt="Mensajes" style="width: 24px; height: 24px;"> <!-- Botón de mensajes con icono -->
+        </button>
+        <button class="boton boton-salir">
+            <img src="salir.png" alt="Salir" style="width: 24px; height: 24px;"> <!-- Botón de salir con icono -->
+        </button>
     </header>
 
-    <div class="container">
-        <h2>Lista de Empleados</h2>
-        <ul class="employee-list">
-            <li><i class="fas fa-user"></i> Thiago</li>
-            <li><i class="fas fa-user"></i> Clara</li>
-            <li><i class="fas fa-user"></i> Martin</li>
-        </ul>
-    </div>
-
-    <footer>
-        <p>&copy; 2024 Tu Empresa. Todos los derechos reservados.</p>
-    </footer>
-
-    <button class="logout" onclick="logout()">
-        <i class="fas fa-sign-out-alt"></i>
-    </button>
-
-    <div class="modal" id="configModal">
-        <div class="modal-content">
-            <h3>Configuración</h3>
-            <div class="switch">
-                <label for="darkModeSwitch">Modo Oscuro</label>
-                <input type="checkbox" id="darkModeSwitch" onchange="toggleDarkMode()">
-            </div>
-            <button class="close" onclick="closeModal()">Salir</button>
+    <main>
+        <div class="nuevo-post">
+            <textarea id="texto-publicacion" placeholder="¿Qué problema tienes?"></textarea>
+            <button class="boton-elegir-archivo" id="boton-elegir-archivo">
+                <img src="file.png" alt="Elegir archivo">
+            </button>
+            <input type="file" id="archivo-imagen" accept="image/*" style="display: none;"> <!-- Campo para seleccionar una imagen -->
+            <button class="boton-publicar" id="boton-publicar">
+                <img src="icon2.png" alt="Publicar">
+            </button>
         </div>
-    </div>
+
+        <div class="feed" id="feed">
+            <!-- Las publicaciones se añadirán aquí -->
+        </div>
+    </main>
 
     <script>
-        const validReferrer = "https://automation-armada.github.io/login/";
-        const referrer = document.referrer;
+        // Cargar publicaciones del localStorage
+        let publicaciones = JSON.parse(localStorage.getItem('publicaciones')) || [];
 
-        if (referrer !== validReferrer && referrer !== "") {
-            window.location.href = validReferrer;
-        } else if (referrer === "") {
-            window.location.href = validReferrer;
+        // Función para agregar una publicación
+        function agregarPublicacion(texto, imagen) {
+            const publicacion = {
+                id: publicaciones.length,
+                texto: texto,
+                imagen: imagen,
+                usuario: 'Usuario123'
+            };
+            publicaciones.push(publicacion);
+            localStorage.setItem('publicaciones', JSON.stringify(publicaciones)); // Guardar en localStorage
+            mostrarPublicaciones();
         }
 
-        let timeout;
-        let inactivityTime = 5 * 60 * 1000; // 5 minutos
-        let warningTime = 10 * 1000; // 10 segundos
+        // Función para mostrar las publicaciones en el feed
+        function mostrarPublicaciones() {
+            const feed = document.getElementById('feed');
+            feed.innerHTML = ''; // Limpiar el feed antes de mostrar las publicaciones
+            publicaciones.forEach(pub => {
+                const divPublicacion = document.createElement('div');
+                divPublicacion.classList.add('publicacion');
 
-        function resetTimer() {
-            clearTimeout(timeout);
-            timeout = setTimeout(showWarning, inactivityTime);
+                divPublicacion.innerHTML = `
+                    <div class="contenido">
+                        <p class="descripcion"><strong>${pub.usuario}:</strong> ${pub.texto}</p>
+                        ${pub.imagen ? `<img src="${pub.imagen}" alt="Imagen de publicación" class="imagen-publicacion">` : ''}
+                        <div class="botones-publicacion">
+                            <img src="icon2.png" alt="Enviar Mensaje" class="btn-enviar-mensaje">
+                            <img src="icon.png" alt="Comentarios" class="btn-comentarios">
+                        </div>
+                    </div>
+                `;
+                feed.appendChild(divPublicacion);
+            });
         }
 
-        function showWarning() {
-            if (confirm("¿Sigues ahí?")) {
-                resetTimer();
+        // Evento para el botón de elegir archivo
+        document.getElementById('boton-elegir-archivo').addEventListener('click', () => {
+            document.getElementById('archivo-imagen').click(); // Simula el clic en el input de archivo
+        });
+
+        // Evento para el botón de publicar
+        document.getElementById('boton-publicar').addEventListener('click', () => {
+            const texto = document.getElementById('texto-publicacion').value;
+            const archivo = document.getElementById('archivo-imagen').files[0];
+
+            // Verificar si se ha seleccionado una imagen
+            let imagen = '';
+            if (archivo) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    imagen = e.target.result; // Obtener la URL de la imagen
+                    agregarPublicacion(texto, imagen);
+                    document.getElementById('texto-publicacion').value = ''; // Limpiar el campo de texto
+                    document.getElementById('archivo-imagen').value = ''; // Limpiar el campo de archivo
+                }
+                reader.readAsDataURL(archivo); // Leer la imagen como URL
             } else {
-                logout();
+                agregarPublicacion(texto, imagen);
+                document.getElementById('texto-publicacion').value = ''; // Limpiar el campo de texto
             }
-        }
+        });
 
-        function logout() {
-            window.location.replace("https://automation-armada.github.io/login/");
-        }
-
-        document.onload = resetTimer();
-        document.onmousemove = resetTimer;
-        document.onkeypress = resetTimer;
-
-        resetTimer();
+        mostrarPublicaciones(); // Mostrar publicaciones al cargar
     </script>
-
 </body>
 </html>
